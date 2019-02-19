@@ -45,3 +45,5 @@
 `SELECT Customers.City, COUNT(Orders.CustomerID) AS NumberOfOrders FROM Orders INNER JOIN Customers ON Orders.CustomerID=Customers.CustomerID GROUP BY Customers.City`
 
 ## delete all users that have no orders. Should delete 17 (or 18 if you haven't deleted the record added) records.
+
+`DELETE FROM Customers WHERE NOT EXISTS (SELECT CustomerID FROM Orders WHERE CustomerID = Customers.CustomerID)`
